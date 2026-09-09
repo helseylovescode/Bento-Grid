@@ -248,7 +248,7 @@ body {
      }
    }
    
-   @media screen and (max-width: 900px) {
+   @media screen and (max-width: 375px) {
     .parent-cont {
         grid-template-columns: 1fr;
         grid-template-rows: auto;
