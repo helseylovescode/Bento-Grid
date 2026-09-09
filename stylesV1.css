@@ -231,4 +231,52 @@ body {
     }
    }
 
+
+   @media screen and (max-width: 900px) {
+    .parent-cont {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-template-areas:
+            "three"
+            "four"
+            "five"
+            "eight"
+            "seven"
+            "six"
+            "one"
+            "two";
+        width: calc(100% - 2rem);
+        max-width: 375px;
+        height: auto;
+        margin: 1rem auto;
+    }
+
+    .cont {
+        width: 100%;
+    }
+
+    .cont.one,
+    .cont.two,
+    .cont.three,
+    .cont.seven {
+        font-size: 1.75rem;
+    }
+
+    .cont.four,
+    .cont.five,
+    .cont.eight {
+        font-size: 1.35rem;
+    }
+
+    .bold {
+        font-size: 2rem;
+    }
+
+    #img-cont-5 {
+        max-width: 100%;
+        height: auto;
+        max-height: none;
+    }
+   }
+
    

@@ -103,13 +103,21 @@ body {
     top: 0;
  }
 
+ .three-img{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+    min-width: 0;
+ }
+
  #img-cont-3{
-   width: 10rem;
+   display: flex;
+   flex-direction: column;
    align-items: center;
-   justify-items: center;
-   display: block;
-   height: auto;
-   margin-left: 11rem;
+   justify-content: center;
+   align-items: center;
 }
  .cont.four{
     background-color: hsl(0, 0%, 100%);
@@ -248,48 +256,54 @@ body {
      }
    }
    
-   @media screen and (max-width: 375px) {
-    .parent-cont {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto;
-        grid-template-areas:
-            "three"
-            "four"
-            "five"
-            "eight"
-            "seven"
-            "six"
-            "one"
-            "two";
-        width: calc(100% - 2rem);
-        height: auto;
-        margin: 1rem auto;
-    }
+   @media screen and (max-width: 900px) {
+  body {
+    /* Prevent body overflow */
+    overflow-x: hidden; 
+  }
 
-    .cont {
-        width: 100%;
-    }
+  .parent-cont {
+    /* Switch to single-column stack */
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 375px;
+    height: auto;
+    margin: 0 auto;
+    padding: 1rem;
+    box-sizing: border-box;
+    gap: 1.5rem;
+  }
 
-    .cont.one,
-    .cont.two,
-    .cont.three,
-    .cont.seven {
-        font-size: 2rem;
-    }
+  .cont {
+    width: 100%;
+    height: auto; /* Let card height adjust naturally */
+    box-sizing: border-box;
+    overflow: hidden; /* Clips any overflowing elements */
+  }
 
-    .cont.four,
-    .cont.five,
-    .cont.eight {
-        font-size: 1.75rem;
-    }
+  /* Force all images inside cards to fit their parent container */
+  .cont img,
+  #img-cont-1, #img-cont-2, #img-cont-3, #img-cont-4, 
+  #img-cont-5, #img-cont-6, #img-cont-7, #img-cont-8 {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    object-fit: contain;
+    display: block;
+  }
 
-    .bold {
-        font-size: 3rem;
-    }
+  /* Responsive typography scaling */
+  .cont.one, .cont.two, .cont.three, .cont.seven {
+    font-size: 1.6rem;
+  }
 
-    #img-cont-5 {
-        max-height: none;
-    }
-   }
+  .cont.four, .cont.five, .cont.eight {
+    font-size: 1.25rem;
+  }
 
-   
+  .bold {
+    font-size: 2rem;
+  }
+}
